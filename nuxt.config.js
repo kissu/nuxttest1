@@ -3,22 +3,6 @@ import axios from 'axios'
 
 export default {
   target: 'server',
-  generate: {
-    async routes() {
-      // const { $content } = require('@nuxt/content')
-      return await axios.get('https://backend.leihia.com:4500/companies').then(res => {
-        return res.data.map(company => {
-          return {
-            route: `/company/${company.id}`,
-            payload: company
-          }
-        })
-        // })
-        // const files = await $content('companies').fetch()
-      })
-    }
-  },
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - test1',
     title: 'test1',
@@ -36,43 +20,21 @@ export default {
     ]
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
     ['nuxt-highlightjs', {
       style: 'atom-one-dark'
     }]
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
-  // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
-
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -90,8 +52,4 @@ export default {
       }
     }
   },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
 }
